@@ -12,6 +12,10 @@ class Student
     void print () {
     cout << " Student Object : " << id << " , " << value << " , " << data << endl ;
     };
+
+    int getId(){return id;}
+    int getValue(){return value;}
+    const char *getData(){return data;}
     ~Student () {};
 
 };

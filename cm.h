@@ -23,6 +23,14 @@ public:
     T get (string key);
 
     // Agregar todas las funciones necesarias
+    bool existKey(string key){
+        for(auto x: cache_data){
+            if(key == cache_data.first)
+                return true;
+            else
+                return false;
+        }
+    }
 
 };
 
@@ -36,20 +44,30 @@ CacheManager <T> :: ~CacheManager () {}
 
 template <class T>
 bool CacheManager <T> :: write_file (string key , T obj) {
-    return true ;
+    fstream file("archivo.txt", ios::in | ios::out);
+    if(!file){
+        cerr << "Error al abrir el archivo" << endl;
+        exit(1);
+    }
+    file << key << " " << obj << obj.getValue();
+    file.close();
+    return true;
 }
 
 // INSERT
 template < class T >
 void CacheManager <T >:: insert ( string key , T obj ) {
-
+    if(cache_data.empty()){
+        cache_data.insert
+    }
 }
 
 
 template <class T>
 T CacheManager <T> :: get(string key) {
+    if(!existKey(key)){
+        cout << "Clave invalida" << endl;
+    }
 
+    cache_data.at(key).second = cache_data.at(key)
 }
-
-
-
